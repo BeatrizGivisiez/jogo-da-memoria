@@ -1,3 +1,8 @@
+:root {
+  --color-bgVersoCarta: gray;
+  --color-bgFrenteCarta: red;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -8,4 +13,20 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+
+header {
+  margin: 36px;
+}
+
+.row {
+  margin-bottom: 24px;
+}
+
+img {
+  background-color: var(--color-bgVersoCarta);
+  border-radius: 5px;
+  width: 70px;
+  height: 70px;
 }
