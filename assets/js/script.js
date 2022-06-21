@@ -1,121 +1,82 @@
-// // Carta Verso
-// let cartaVerso = "./assets/img/cross.png";
-// let imagens = [];
-// for (let i = 0; i <= 8; i++) {
-//   imagens.push(`http://picsum.photos/id/${i}/80`);
-//   // let fundo = `${cartaVerso}`;
-//   let fundo = 'https://picsum.photos/80?grayscale'
+const tabuleiro = document.getElementById("tabuleiro");
 
-//   // Estado Tabuleiro
-//   let cartas = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
+const imagens = [
+  "img0.png",
+  "img1.png",
+  "img2.png",
+  "img3.png",
+  "img4.png",
+  "img5.png",
+  "img6.png",
+  "img7.png",
+];
 
-//   onload = () => {
-//     // Carrega Tabuleiro
-//     let elemImagens = document.querySelectorAll("#memoria img");
-//     elemImagens.forEach((img, i) => {
-//       img.src = fundo;
-//       img.setAttribute("data-valor", i);
-//       img.style.opacity = 0.6;
-//     });
+let codigoHTML = "";
 
-//     // Evento botão
-//     document.querySelector("#buttonPlay").onClick = iniciaJogo;
-//   };
-// }
-
-// // Play Game
-// const iniciaJogo = () => {
-  
-//   // Embaralhar as cartas
-//   for(let i=0; i<cartas.length; i++){
-//     let p = Math.trunc(Math.random() * cartas.length);
-//     let aux = cartas[p];
-//     cartas[p] = cartas[i];
-//     cartas[i] = aux;
-//   }
-
-//   // Associar evento às imagens
-//   let elemImagens = document.querySelectorAll("#memoria img");
-//   elemImagens.forEach((img, i) => {
-//       img.onclick = trataCliqueImagem;
-//       img.style.opacity = 0.6;
-//     })
-// };
-
-// const trataCliqueImagem = (e) => {
-//   e.target.src = imagens[];
-// }
-
-
-
-const cards = document.querySelectorAll('.carta');
-let hasFlippedCard = false;
-let lockBoard = false;
-let firstCard, secondCard;
-
-//função para virar carta
-function flipCard() {
-    if (lockBoard) return;
-    if (this === firstCard) return;
-
-    this.classList.add('flip');
-
-    if (!hasFlippedCard) {
-        hasFlippedCard = true;
-        firstCard = this;
-        return;
-    }
-
-    secondCard = this;
-    hasFlippedCard = false;
-
-    checkForMatch();
-}
-
-//função que checa se as cartas são iguais
-function checkForMatch() {
-    if (firstCard.dataset.card === secondCard.dataset.card) {
-        disableCards();
-        return;
-    }
-    unflipCards();
-}
-
-//função que desabilita as cartas
-function disableCards() {
-    firstCard.removeEventListener('click', flipCard);
-    secondCard.removeEventListener('click', flipCard);
-    resetBoard();
-}
-
-//funcão que desvira as cartas
-function unflipCards() {
-    lockBoard = true;
-
-    setTimeout(() => {
-        firstCard.classList.remove('flip');
-        secondCard.classList.remove('flip');
-
-        resetBoard();
-    }, 1500);
-}
-
-//função que reseta o tabuleiro
-function resetBoard() {
-    [hasFlippedCard, lockBoard] = [false, false];
-    [firstCard, secondCard] = [null, null];
-}
-
-//função que embaralha as cartas
-(function shuffle() {
-    cards.forEach((card) => {
-        let randomPosition = Math.floor(Math.random() * 12);
-        card.style.order = randomPosition;
-    })
-})();
-
-//adiciona evento de clique na carta
-cards.forEach((card) => {
-    card.addEventListener('click', flipCard);
+imagens.forEach((img) => {
+  codigoHTML += `<div class="memory-card" data-card="${img}">
+    <img class="frente-carta" src="./assets/img/${img}" alt="carta-frente">
+    <img class="fundo-carta" src="./assets/img/cross.png" alt="carta-fundo">
+  </div>`;
 });
 
+tabuleiro.innerHTML = codigoHTML + codigoHTML;
+
+const cartas = document.querySelectorAll(".memory-card");
+
+let primeira, segunda;
+let bloqueio = false;
+
+(function aleatoria() {
+  cartas.forEach((carta) => {
+    let numero = Math.foor(Math.random() * 16);
+    carta.style.order = numero;
+  });
+})();
+
+// Função que verifica se é iguais
+function checar() {
+  let ehIgual = primeira.dataset.carta === segunda.dataset.carta ? true : false;
+
+  if (!ehIgual) {
+    remover();
+  } else {
+    reset(ehIgual);
+  }
+}
+
+function virar() {
+  if (bloqueio) return false;
+  this.classList.add("virar");
+
+  if (!primeira) {
+    primeira = this;
+    primeira.removeEventListener("click", virar);
+    return false;
+  }
+  segunda = this;
+
+  checar();
+}
+
+// Funcão para atrasar quando a 2º vira
+function remover() {
+  bloqueio = true;
+  setTimeout(() => {
+    primeira.classList.remove("virar");
+    primeira.addEventListener("click", virar);
+    segunda.classLit.remove("virar");
+    bloqueio = false;
+    primeira = null;
+    segunda = null;
+  }, 2000);
+}
+
+function reset(ehIgual) {
+  if (ehIgual) {
+    primeira.removeEventListener("click", virar);
+    segunda.removeEventListener("click", virar);
+    [bloqueio, primeira, segunda] = [false, null, null];
+  }
+}
+cartas.forEach((c) => c.addEventListener("click", virar));

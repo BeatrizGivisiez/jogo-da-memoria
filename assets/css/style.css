@@ -1,7 +1,7 @@
 :root {
-  --color-borderCarta: black;
-  --color-bgVersoCarta: rgb(172, 165, 165);
-  --color-bgFrenteCarta: red;
+  --color-borderCarta: #000000;
+  --color-bgVersoCarta: #aca5a5;
+  --color-bgFrenteCarta: #ffffff;
 }
 
 * {
@@ -20,58 +20,56 @@ body {
 }
 
 header {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   margin: 50px;
 }
 
-.tabuleiro{
-  flex-direction:row;
-  height: 100%;
-}
-
-.row {
+#tabuleiro {
+  width: 450px;
+  height: 450px;
+  margin: auto;
   display: flex;
-  margin-bottom: 24px;
-  justify-content: center;
-  align-items: center;
+  flex-wrap: wrap;
 }
 
-.card{
-  width: 70px;
-  height: 70px;
-  margin: 5px;
+img {
+  width: 80px;
+  height: 80px;
+}
+
+.memory-card {
+  width: 25%;
+  height: 25%;
   position: relative;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
-  cursor: pointer;
-  transform: scale(1);
+  margin: 5px;
   transform-style: preserve-3d;
-  transition: transform .9s;
+  transition: 0.5s;
+  cursor: pointer;
 }
 
-.cardF, .cardT {
-    width: 70px;
-    height: 70px;
-    padding: 20px;
-    position: absolute;
-    border-radius: 5px;
-    background: rgb(187, 92, 92);
-    backface-visibility: hidden;
+.memory-card:active {
+  transition: scale(0.97);
 }
 
-.cardF, .card.flip{
+.memory-card.virar {
   transform: rotateY(180deg);
 }
 
-.button {
-  font-family: 'Courier New', Courier, monospace;
-  background-color: #4CAF50; 
-  border: none;
-  color: black;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+.frente-carta {
+  transform: rotateY(180deg);
+  padding: 5px;
+  background-color: var(--color-bgFrenteCarta);
   border-radius: 10px;
-  cursor: pointer;
+}
+
+.frente-carta,
+.fundo-carta {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.fundo-carta {
+  background-color: var(--color-bgVersoCarta);
+  border-radius: 10px;
 }
