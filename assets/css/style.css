@@ -38,10 +38,10 @@ img {
 }
 
 .memory-card {
-  width: 25%;
-  height: 25%;
+  width: 22%;
+  height: 22%;
   position: relative;
-  margin: 5px;
+  margin: 6px;
   transform-style: preserve-3d;
   transition: 0.5s;
   cursor: pointer;
