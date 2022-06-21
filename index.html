@@ -1,85 +1,167 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jogo da memoria</title>
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
-  <script src="./assets/js/script.js"></script>
-</head>
-<body>
-  <header>
-    <h1 class="title">Jogo da Memória</h1>
-  </header>
-  <main class="tabuleiro">
-    
-      <div id="memoria">
-        <div id="cartas">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jogo da memoria</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="./assets/js/script.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1 class="title">Jogo da Memória</h1>
+    </header>
+    <main class="tabuleiro">
+          <!-- INICIO LINHA -->
           <div class="row">
-            <div class="col-3">
-              <img id="carta1">
+            <div class="card" data-card="0">
+              <img
+                src="./assets/img/0.png"
+                alt="Frente da card"
+                class="cardF"
+              />
+              <img src="./assets/img/cross.png" alt="Verso da card" class="cardT" />
             </div>
-            <div class="col-3">
-              <img id="carta2">
+            <div class="card" data-card="1">
+              <img
+                src="./assets/img/1.png"
+                alt="Frente da card"
+                class="cardF"
+              />
+              <img src="./assets/img/cross.png" alt="Verso da card" class="cardT" />
             </div>
-            <div class="col-3">
-              <img id="carta3">
+            <div class="card" data-card="2">
+              <img
+                src="./assets/img/2.png"
+                alt="Frente da card"
+                class="cardF"
+              />
+              <img src="./assets/img/cross.png" alt="Verso da card" class="cardT" />
             </div>
-            <div class="col-3">
-              <img id="carta4">
+            <div class="card" data-card="3">
+              <img
+                src="./assets/img/3.png"
+                alt="Frente da card"
+                class="cardF"
+              />
+              <img src="./assets/img/cross.png" alt="Verso da card" class="cardT" />
             </div>
           </div>
-
           <div class="row">
-            <div class="col-3">
-              <img id="carta5">
+            <div class="card" data-card="4">
+              <img
+                src="./assets/img/4.png"
+                alt="Frente da card"
+                class="cardF"
+              />
+              <img src="./assets/img/cross.png" alt="Verso da card" class="cardT" />
             </div>
-            <div class="col-3">
-              <img id="carta6">
+            <div class="card" data-card="5">
+              <img
+                src="./assets/img/5.png"
+                alt="Frente da card"
+                class="cardF"
+              />
+              <img src="./assets/img/cross.png" alt="Verso da card" class="cardT" />
             </div>
-            <div class="col-3">
-              <img id="carta7">
+            <div class="card" data-card="6">
+              <img
+                src="./assets/img/6.png"
+                alt="Frente da card"
+                class="cardF"
+              />
+              <img src="./assets/img/cross.png" alt="Verso da card" class="cardT" />
             </div>
-            <div class="col-3">
-              <img id="carta8">
+            <div class="card" data-card="7">
+              <img
+                src="./assets/img/7.png"
+                alt="Frente da card"
+                class="cardF"
+              />
+              <img src="./assets/img/cross.png" alt="Verso da card" class="cardT" />
             </div>
           </div>
-
+          <!-- FIM LINHA -->
+          <!-- INICIO LINHA -->
           <div class="row">
-            <div class="col-3">
-              <img id="carta9">
+            <div class="card" data-card="0">
+              <img
+                src="./assets/img/0.png"
+                alt="Frente da card"
+                class="cardF"
+              />
+              <img src="./assets/img/cross.png" alt="Verso da card" class="cardT" />
             </div>
-            <div class="col-3">
-              <img id="carta10">
+            <div class="card" data-card="1">
+              <img
+                src="./assets/img/1.png"
+                alt="Frente da card"
+                class="cardF"
+              />
+              <img src="./assets/img/cross.png" alt="Verso da card" class="cardT" />
             </div>
-            <div class="col-3">
-              <img id="carta11">
+            <div class="card" data-card="2">
+              <img
+                src="./assets/img/2.png"
+                alt="Frente da card"
+                class="cardF"
+              />
+              <img src="./assets/img/cross.png" alt="Verso da card" class="cardT" />
             </div>
-            <div class="col-3">
-              <img id="carta12">
+            <div class="card" data-card="3">
+              <img
+                src="./assets/img/3.png"
+                alt="Frente da card"
+                class="cardF"
+              />
+              <img src="./assets/img/cross.png" alt="Verso da card" class="cardT" />
             </div>
           </div>
-
           <div class="row">
-            <div class="col-3">
-              <img id="carta13">
+            <div class="card" data-card="4">
+              <img
+                src="./assets/img/4.png"
+                alt="Frente da card"
+                class="cardF"
+              />
+              <img src="./assets/img/cross.png" alt="Verso da card" class="cardT" />
             </div>
-            <div class="col-3">
-              <img id="carta14">
+            <div class="card" data-card="5">
+              <img
+                src="./assets/img/5.png"
+                alt="Frente da card"
+                class="cardF"
+              />
+              <img src="./assets/img/cross.png" alt="Verso da card" class="cardT" />
             </div>
-            <div class="col-3">
-              <img id="carta15">
+            <div class="card" data-card="6">
+              <img
+                src="./assets/img/6.png"
+                alt="Frente da card"
+                class="cardF"
+              />
+              <img src="./assets/img/cross.png" alt="Verso da card" class="cardT" />
             </div>
-            <div class="col-3">
-              <img id="carta16">
+            <div class="card" data-card="7">
+              <img
+                src="./assets/img/7.png"
+                alt="Frente da card"
+                class="cardF"
+              />
+              <img src="./assets/img/cross.png" alt="Verso da card" class="cardT" />
             </div>
           </div>
+          <!-- FIM LINHA -->
 
+
+      <div class="row" id="rodape">
+        <div class="col">
+          <button type="button" class="button" id="buttonPlay">
+            Play
+          </button>
         </div>
       </div>
-    
-  </main>
-</body>
+    </main>
+  </body>
 </html>

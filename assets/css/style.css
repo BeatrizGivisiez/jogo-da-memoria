@@ -1,5 +1,6 @@
 :root {
-  --color-bgVersoCarta: gray;
+  --color-borderCarta: black;
+  --color-bgVersoCarta: rgb(172, 165, 165);
   --color-bgFrenteCarta: red;
 }
 
@@ -10,23 +11,67 @@
 }
 
 body {
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  background-color: rgb(248, 243, 188);
 }
 
 header {
-  margin: 36px;
+  font-family: 'Courier New', Courier, monospace;
+  margin: 50px;
+}
+
+.tabuleiro{
+  flex-direction:row;
+  height: 100%;
 }
 
 .row {
+  display: flex;
   margin-bottom: 24px;
+  justify-content: center;
+  align-items: center;
 }
 
-img {
-  background-color: var(--color-bgVersoCarta);
-  border-radius: 5px;
+.card{
   width: 70px;
   height: 70px;
+  margin: 5px;
+  position: relative;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
+  cursor: pointer;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform .9s;
+}
+
+.cardF, .cardT {
+    width: 70px;
+    height: 70px;
+    padding: 20px;
+    position: absolute;
+    border-radius: 5px;
+    background: rgb(187, 92, 92);
+    backface-visibility: hidden;
+}
+
+.cardF, .card.flip{
+  transform: rotateY(180deg);
+}
+
+.button {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #4CAF50; 
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
 }
