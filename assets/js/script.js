@@ -29,7 +29,7 @@ let bloqueio = false;
 
 (function aleatoria() {
   cartas.forEach((carta) => {
-    let numero = Math.foor(Math.random() * 16);
+    let numero = Math.floor(Math.random() * 16);
     carta.style.order = numero;
   });
 })();

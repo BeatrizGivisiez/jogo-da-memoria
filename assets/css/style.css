@@ -21,7 +21,7 @@ body {
 
 header {
   font-family: "Courier New", Courier, monospace;
-  margin: 50px;
+  margin-top: 50px;
 }
 
 #tabuleiro {
@@ -58,7 +58,7 @@ img {
 .frente-carta {
   transform: rotateY(180deg);
   padding: 5px;
-  background-color: var(--color-bgFrenteCarta);
+  /* background-color: var(--color-bgFrenteCarta); */
   border-radius: 10px;
 }
 
