@@ -1,0 +1,14 @@
+h1{
+  text-align: center;
+}
+
+#grade{
+  display: flex;
+  flex-wrap: wrap;
+  width: 520;
+  margin: auto;
+}
+
+img{
+  width: 130px;
+}
